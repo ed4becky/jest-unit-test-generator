@@ -1,0 +1,29 @@
+{
+    "exclude": [
+        "./node_modules"
+    ],
+    "include": [
+        "./src/*"
+    ],
+    "compileOnSave": false,
+    "compilerOptions": {
+        "typeRoots": [ "./node_modules/@types/" ],
+        "outDir": "lib",
+        "noImplicitAny": true,
+        "noImplicitReturns": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "declaration": true,
+        "skipLibCheck": true,
+        "target": "es2015",
+        "module": "commonjs",
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "strict": true,
+        "strictPropertyInitialization": false,
+        "lib": [
+            "es2015",
+            "dom"
+        ]
+    }
+}

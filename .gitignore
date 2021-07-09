@@ -1,0 +1,4 @@
+node_modules
+lib/
+jasmine-unit-test-generator-*.tgz
+jest-unit-test-generator-*.tgz
