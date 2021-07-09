@@ -43,7 +43,7 @@ export default {
       // warning, strange formatting is intentional to create correct output!
       result.initializers.push({
         value:
-          `${options.variableName}.of.and.callFake((ev) => {
+          `${options.variableName}.of.mockImplementation((ev) => {
 ${usedEvents.map((ev, index) => {
             return `      ${index === 0 ? 'if' : '} else if'} (ev === ${ev}) {
         return ${eventNames[index]};

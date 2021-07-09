@@ -2,7 +2,7 @@ import { ParsedClassDependency, ClassOptions, DependencyHandler, DependencyHandl
 import { getUsedMethods } from './helpers';
 
 export default {
-  run(result: ClassOptions, dep: ParsedClassDependency, options: DependencyHandlerOptions) {
+  run: function (result: ClassOptions, dep: ParsedClassDependency, options: DependencyHandlerOptions) {
     const usedMethods = getUsedMethods(options.sourceCode, dep.name);
 
     result.declarations.push({
@@ -10,15 +10,23 @@ export default {
       type: `jest.Mocked<${dep.type || 'any'}>`
     });
 
-    result.initializers.push({
-      name: options.variableName,
-      value: `createSpyObj<${dep.type || 'any'}>(${options.quoteSymbol}${dep.type === 'any' || !dep.type ? dep.name : dep.type}${options.quoteSymbol}, [${usedMethods.map(m => (options.quoteSymbol + m + options.quoteSymbol)).join(`, `)}])`
-    });
+    let initializer: {name: string, value: string};
+    if (options.variableName === 'fakeData') {
+      initializer = {name: options.variableName, value: '{}'};
+    } else {
+      const argType = dep.type ? dep.type.replace(/<.*>/g, '') : void 0;
+      initializer = {
+        name: options.variableName,
+        value: `createSpyObj<${dep.type || 'any'}>(${dep.type === 'any' || !dep.type ? dep.name : argType}, [${usedMethods.map(m => (options.quoteSymbol + m + options.quoteSymbol)).join(`, `)}])`
+      };
+    }
+    result.initializers.push(initializer);
 
     result.dependencies.push({
       name: options.variableName,
       token: options.injectionToken || 'no-token'
     });
+    result.methods = options.methods;
   },
 
   test(_dep: ParsedClassDependency) {

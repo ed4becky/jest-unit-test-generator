@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createSpyObj } from 'jest-createspyobj';
 import { HomePageComponent } from './home-page.component';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -8,9 +9,9 @@ describe('HomePageComponent', () => {
   let fakeRouter: jest.Mocked<Router>;
   let fakeRoute: jest.Mocked<ActivatedRoute>;
 
-  beforeEach(async() => {
-    fakeRouter = createSpyObj<Router>('Router', ['navigate']);
-    fakeRoute = createSpyObj<ActivatedRoute>('ActivatedRoute', []);
+  beforeEach(async () => {
+    fakeRouter = createSpyObj<Router>(Router, ['navigate']);
+    fakeRoute = createSpyObj<ActivatedRoute>(ActivatedRoute, []);
 
     await TestBed.configureTestingModule({
       declarations: [HomePageComponent],
@@ -29,6 +30,13 @@ describe('HomePageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('METHOD: ngOnInit', () => {
+    it('should do something', () => {
+      // TODO implement test
+      // component.ngOnInit();
+    });
   });
 
 });

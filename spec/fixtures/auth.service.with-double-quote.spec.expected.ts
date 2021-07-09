@@ -1,3 +1,5 @@
+import { TestBed } from "@angular/core/testing";
+import { createSpyObj } from "jest-createspyobj";
 import { AuthService } from "./auth.service.with-double-quote";
 import { LoggerService } from "./helpers/logger.service";
 import { EventBusService } from "./helpers/event-bus.service";
@@ -8,24 +10,37 @@ describe("AuthService", () => {
   let fakeLogger: jest.Mocked<LoggerService>;
   let fakeEventBusService: jest.Mocked<EventBusService>;
 
-  function createService() {
-    service = new AuthService(
-      fakeWindow,
-      fakeLogger,
-      fakeEventBusService,
-    );
-  }
+  beforeEach(async () => {
+    fakeWindow = createSpyObj<Window>(Window, ["setInterval"]);
+    fakeLogger = createSpyObj<LoggerService>(LoggerService, ["debug"]);
+    fakeEventBusService = createSpyObj<EventBusService>(EventBusService, ["publish"]);
 
-  beforeEach(() => {
-    fakeWindow = createSpyObj<Window>("Window", ["setInterval"]);
-    fakeLogger = createSpyObj<LoggerService>("LoggerService", ["debug"]);
-    fakeEventBusService = createSpyObj<EventBusService>("EventBusService", ["publish"]);
-
-    createService();
+    await TestBed.configureTestingModule({
+      providers: [
+        { provide: "window", useFactory: () => fakeWindow },
+        { provide: LoggerService, useFactory: () => fakeLogger },
+        { provide: EventBusService, useFactory: () => fakeEventBusService },
+      ]
+    });
+    service = TestBed.inject(AuthService);
   });
 
   it("should create", () => {
     expect(service).toBeTruthy();
+  });
+
+  describe("METHOD: login", () => {
+    it("should do something", () => {
+      // TODO implement test
+      // service.login();
+    });
+  });
+
+  describe("METHOD: logout", () => {
+    it("should do something", () => {
+      // TODO implement test
+      // service.logout();
+    });
   });
 
 });

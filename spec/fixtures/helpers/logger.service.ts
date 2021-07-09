@@ -15,6 +15,6 @@ export class LoggerService {
   debug = this.getLog('debug');
 
   protected getLog(type: string): ((message: any, ..._args: any[]) => void) {
-    return this.window.console[type] || (() => { });
+    return this.window['console'][type] || (() => { });
   }
 }

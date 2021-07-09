@@ -1,8 +1,10 @@
-# Jasmine unit test generator
+# Jest unit test generator
 
-[![Travis CI build](https://travis-ci.org/fdim/jasmine-unit-test-generator.svg)](https://travis-ci.org/fdim/jasmine-unit-test-generator)
+[![Travis CI build](https://travis-ci.org/fdim/jest-unit-test-generator.svg)](https://travis-ci.org/fdim/jest-unit-test-generator)
 
 Automates creation of initial unit test files taking dependencies into account.
+
+Based on FDIM's (https://www.npmjs.com/package/jasmine-unit-test-generator)](https://www.npmjs.com/package/jasmine-unit-test-generator)
 
 Supported types:
 
@@ -28,21 +30,21 @@ With custom event bus service dependency handler:
 
 ### Installation
 
-run `npm i jasmine-unit-test-generator`
+run `npm i jest-unit-test-generator`
 
 ### Basic
 
-run `jasmine-unit-test-generator <path-to-file>`
+run `jest-unit-test-generator <path-to-file>`
 
 ### With custom dependency handlers:
 
-run `jasmine-unit-test-generator --handlers <path-to-handlers-dir> <path-to-file>`
+run `jest-unit-test-generator --handlers <path-to-handlers-dir> <path-to-file>`
 
 ### With dependency handlers written in typescript:
 
 install `ts-node` 
 
-run `jasmine-unit-test-generator --require ts-node/register --handlers <path-to-handlers-dir> <path-to-file>`
+run `jest-unit-test-generator --require ts-node/register --handlers <path-to-handlers-dir> <path-to-file>`
 
 At the moment argument order is important!
 
@@ -66,7 +68,7 @@ Alternavely, you can:
 
 * run `npm link`
 * run `npm run build:dev`
-* run `jasmine-unit-test-generator <option>` in your project of choice
+* run `jest-unit-test-generator <option>` in your project of choice
 
 ## Release
 

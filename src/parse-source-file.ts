@@ -25,7 +25,8 @@ export function parseSourceFile(file: ts.SourceFile): ParsedSourceFile {
   function classWalker(node: ts.ClassDeclaration) {
     const klass: ParsedClass = {
       name: node.name && node.name.escapedText as any,
-      dependencies: []
+      dependencies: [],
+      methods: {}
     };
     ts.forEachChild(node, (child) => {
       if (child.kind === ts.SyntaxKind.Constructor) {
@@ -37,6 +38,8 @@ export function parseSourceFile(file: ts.SourceFile): ParsedSourceFile {
             token: extractInjectionToken(param)
           });
         });
+      } else if (child.kind === ts.SyntaxKind.MethodDeclaration) {
+        klass.methods[(child as any).name.escapedText] = true;
       }
     });
     result.classes.push(klass);

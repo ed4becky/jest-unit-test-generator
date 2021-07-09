@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createSpyObj } from 'jest-createspyobj';
 import { LoginFormComponent } from './login-form.component';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from '../../auth.service';
@@ -12,11 +13,11 @@ describe('LoginFormComponent', () => {
   let fakeDocument: jest.Mocked<Document>;
   let fakeWindow: jest.Mocked<Window>;
 
-  beforeEach(async() => {
-    fakeAuthService = createSpyObj<AuthService>('AuthService', ['login']);
-    fakeEventBusService = createSpyObj<EventBusService>('EventBusService', ['of']);
-    fakeDocument = createSpyObj<Document>('Document', ['querySelectorAll']);
-    fakeWindow = createSpyObj<Window>('Window', ['alert']);
+  beforeEach(async () => {
+    fakeAuthService = createSpyObj<AuthService>(AuthService, ['login']);
+    fakeEventBusService = createSpyObj<EventBusService>(EventBusService, ['of']);
+    fakeDocument = createSpyObj<Document>(Document, ['querySelectorAll']);
+    fakeWindow = createSpyObj<Window>(Window, ['alert']);
 
     await TestBed.configureTestingModule({
       declarations: [LoginFormComponent],
@@ -37,6 +38,27 @@ describe('LoginFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('METHOD: ngOnInit', () => {
+    it('should do something', () => {
+      // TODO implement test
+      // component.ngOnInit();
+    });
+  });
+
+  describe('METHOD: login', () => {
+    it('should do something', () => {
+      // TODO implement test
+      // component.login();
+    });
+  });
+
+  describe('METHOD: error', () => {
+    it('should do something', () => {
+      // TODO implement test
+      // component.error();
+    });
   });
 
 });

@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { createSpyObj } from 'jest-createspyobj';
 import { LoginFormComponent } from './login-form.component';
 import { DOCUMENT } from '@angular/common';
 import { AuthService } from '../../auth.service';
@@ -16,12 +17,12 @@ describe('LoginFormComponent', () => {
   let fakeDocument: jest.Mocked<Document>;
   let fakeWindow: jest.Mocked<Window>;
 
-  beforeEach(async() => {
-    fakeAuthService = createSpyObj<AuthService>('AuthService', ['login']);
-    fakeEventBusService = createSpyObj<EventBusService>('EventBusService', ['of']);
+  beforeEach(async () => {
+    fakeAuthService = createSpyObj<AuthService>(AuthService, ['login']);
+    fakeEventBusService = createSpyObj<EventBusService>(EventBusService, ['of']);
     loginEventSubject = new ReplaySubject<LoginEvent>(1);
     logoutEventSubject = new ReplaySubject<LogoutEvent>(1);
-    fakeEventBusService.of.and.callFake((ev) => {
+    fakeEventBusService.of.mockImplementation((ev) => {
       if (ev === LoginEvent) {
         return loginEventSubject;
       } else if (ev === LogoutEvent) {
@@ -30,8 +31,8 @@ describe('LoginFormComponent', () => {
         throw new Error('event:' + ev + ' not mocked');
       }
     });
-    fakeDocument = createSpyObj<Document>('Document', ['querySelectorAll']);
-    fakeWindow = createSpyObj<Window>('Window', ['alert']);
+    fakeDocument = createSpyObj<Document>(Document, ['querySelectorAll']);
+    fakeWindow = createSpyObj<Window>(Window, ['alert']);
 
     await TestBed.configureTestingModule({
       declarations: [LoginFormComponent],
@@ -52,6 +53,27 @@ describe('LoginFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  describe('METHOD: ngOnInit', () => {
+    it('should do something', () => {
+      // TODO implement test
+      // component.ngOnInit();
+    });
+  });
+
+  describe('METHOD: login', () => {
+    it('should do something', () => {
+      // TODO implement test
+      // component.login();
+    });
+  });
+
+  describe('METHOD: error', () => {
+    it('should do something', () => {
+      // TODO implement test
+      // component.error();
+    });
   });
 
 });

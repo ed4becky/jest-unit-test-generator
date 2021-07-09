@@ -2,6 +2,7 @@
 export interface ParsedClass {
   name: string;
   dependencies: ParsedClassDependency[];
+  methods: any;
 }
 
 export interface ParsedClassDependency {
@@ -24,6 +25,7 @@ export interface ClassOptions {
   initializers: { name?: string, value: string }[];
   dependencies: { name: string, token: string }[];
   imports: ParsedImport[];
+  methods: string[];
 }
 
 export interface TemplateOptions {
@@ -38,6 +40,7 @@ export interface DependencyHandlerOptions {
   sourceCode: string;
   allImports: ParsedImport[];
   quoteSymbol: string;
+  methods: string[];
 }
 export interface DependencyHandler {
   run(result: ClassOptions, dep: ParsedClassDependency, options: DependencyHandlerOptions): void

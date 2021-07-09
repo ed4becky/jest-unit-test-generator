@@ -58,8 +58,10 @@ function getClassOptions(klass: ParsedClass, handlers: DependencyHandler[], opti
     declarations: [],
     initializers: [],
     dependencies: [],
-    imports: options.usedImports
+    imports: options.usedImports,
+    methods: []
   };
+
   klass.dependencies.forEach(dep => {
     const offset = dep.name.indexOf('$') === 0 ? 1 : 0;
     const variableName = 'fake' + dep.name.charAt(offset).toUpperCase() + dep.name.slice(1 + offset);
@@ -74,6 +76,7 @@ function getClassOptions(klass: ParsedClass, handlers: DependencyHandler[], opti
           quoteSymbol: options.quoteSymbol,
           sourceCode: options.sourceCode,
           allImports: options.allImports,
+          methods: Object.keys(klass.methods)
         });
         return;
       }

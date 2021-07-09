@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/jasmine-unit-test-generator.iml" filepath="$PROJECT_DIR$/.idea/jasmine-unit-test-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/jest-unit-test-generator.iml" filepath="$PROJECT_DIR$/.idea/jest-unit-test-generator.iml" />
     </modules>
   </component>
 </project>
