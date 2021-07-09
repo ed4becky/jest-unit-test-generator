@@ -9,6 +9,7 @@ export interface ParsedClassDependency {
   name: string;
   type?: string;
   token?: string;
+  isObj?: boolean;
 }
 export interface ParsedImport {
   path: string;

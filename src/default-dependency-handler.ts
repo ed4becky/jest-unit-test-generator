@@ -11,7 +11,8 @@ export default {
     });
 
     let initializer: {name: string, value: string};
-    if (options.variableName === 'fakeData') {
+    if (options.variableName === 'fakeData' || options.variableName === 'fakeConfig' || options.variableName === 'fakeEnvironment') {
+      dep.isObj = true;
       initializer = {name: options.variableName, value: '{}'};
     } else {
       const argType = dep.type ? dep.type.replace(/<.*>/g, '') : void 0;

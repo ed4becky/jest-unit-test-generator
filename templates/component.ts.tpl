@@ -18,7 +18,7 @@ describe(<%=quoteSymbol %><%=name %><%=quoteSymbol %>, () => {
       declarations: [<%=name %>],
       providers: [<%
       dependencies.forEach(function(dep) { %>
-        { provide: <%=dep.token %>, useFactory: () => <%=dep.name%> },<% }) %>
+        { provide: <%=dep.token %>, <%=(dep.isObj?'useValue: ':'useFactory: () => ')%><%=dep.name%> },<% }) %>
       ]
     })
       .compileComponents();
