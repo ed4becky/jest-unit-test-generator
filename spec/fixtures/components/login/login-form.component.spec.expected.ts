@@ -27,8 +27,7 @@ describe('LoginFormComponent', () => {
         { provide: DOCUMENT, useFactory: () => fakeDocument },
         { provide: 'window', useFactory: () => fakeWindow },
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

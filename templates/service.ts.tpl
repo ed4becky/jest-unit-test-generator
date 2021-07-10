@@ -16,7 +16,7 @@ describe(<%=quoteSymbol %><%=name %><%=quoteSymbol %>, () => {
     await TestBed.configureTestingModule({
       providers: [<%
       dependencies.forEach(function(dep) { %>
-        { provide: <%=dep.token %>, useFactory: () => <%=dep.name%> },<% }) %>
+        { provide: <%=dep.token %>, <%=(dep.isObj?'useValue: ':'useFactory: () => ') + dep.name%> },<% }) %>
       ]
     });
     service = TestBed.inject(<%=name %>);

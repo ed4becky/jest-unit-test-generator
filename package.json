@@ -1,6 +1,6 @@
 {
-  "name": "@ed4becky/jest-unit-test-generator",
-  "version": "1.0.0",
+  "name": "@evidentiasoftware/jest-unit-test-generator",
+  "version": "1.0.2",
   "description": "Generate initial unit test with all class dependencies mocked. Can be extended with custom handlers to cover move advanced cases",
   "keywords": [
     "unit test generator",
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:ed4becky/jest-unit-test-generator.git"
+    "url": "git+ssh://git@github.com/ed4becky/jest-unit-test-generator.git"
   },
   "author": "ed4becky",
   "license": "MIT",
@@ -30,13 +30,17 @@
     "typescript": "^4.1.6"
   },
   "bin": {
-    "jest-unit-test-generator": "./lib/cli.js"
+    "jest-unit-test-generator": "lib/cli.js"
   },
   "dependencies": {
     "babel-jest": "^27.0.6",
     "jest-createspyobj": "^2.0.0",
     "lodash": "^4.17.21",
-    "ts-jest": "^27.0.3"
+    "ts-jest": "^27.0.3",
+    "@angular/common": "^11.2.14",
+    "@angular/core": "^11.2.14",
+    "@angular/router": "^11.2.14",
+    "rxjs": "^6.6.7"
   },
   "peerDependencies": {
     "typescript": "^4.1.6"
@@ -46,5 +50,9 @@
     "@angular/core": "^11.2.14",
     "@angular/router": "^11.2.14",
     "rxjs": "^6.6.7"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/ed4becky/jest-unit-test-generator/issues"
+  },
+  "homepage": "https://github.com/ed4becky/jest-unit-test-generator#readme"
 }

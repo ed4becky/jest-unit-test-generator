@@ -5,15 +5,22 @@ export default {
   run: function (result: ClassOptions, dep: ParsedClassDependency, options: DependencyHandlerOptions) {
     const usedMethods = getUsedMethods(options.sourceCode, dep.name);
 
+    let type: string;
+
+    if (dep.isObj) {
+      type = `${dep.type || 'any'}`;
+    } else {
+      type = `jest.Mocked<${dep.type || 'any'}>`;
+    }
     result.declarations.push({
       name: options.variableName,
-      type: `jest.Mocked<${dep.type || 'any'}>`
+      type: type
     });
 
     let initializer: {name: string, value: string};
-    if (options.variableName === 'fakeData' || options.variableName === 'fakeConfig' || options.variableName === 'fakeEnvironment') {
-      dep.isObj = true;
-      initializer = {name: options.variableName, value: '{}'};
+
+    if (dep.isObj) {
+      initializer = {name: options.variableName, value: `{} as ${dep.type || 'any'}`};
     } else {
       const argType = dep.type ? dep.type.replace(/<.*>/g, '') : void 0;
       initializer = {
@@ -25,7 +32,8 @@ export default {
 
     result.dependencies.push({
       name: options.variableName,
-      token: options.injectionToken || 'no-token'
+      token: options.injectionToken || 'no-token',
+      isObj: dep.isObj
     });
     result.methods = options.methods;
   },

@@ -65,6 +65,10 @@ function getClassOptions(klass: ParsedClass, handlers: DependencyHandler[], opti
   klass.dependencies.forEach(dep => {
     const offset = dep.name.indexOf('$') === 0 ? 1 : 0;
     const variableName = 'fake' + dep.name.charAt(offset).toUpperCase() + dep.name.slice(1 + offset);
+    dep.isObj = variableName.endsWith('Data')
+        || variableName.endsWith('Config')
+        || variableName.endsWith('Environment');
+
     const injectionToken = dep.token ? dep.token : (dep.type && dep.type.replace(/(<.*)/, '') || 'unknown');
 
     for (let i = 0; i < handlers.length; i++) {

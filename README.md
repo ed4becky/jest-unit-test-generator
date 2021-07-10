@@ -4,7 +4,8 @@
 
 Automates creation of initial unit test files taking dependencies into account.
 
-Based on FDIM's (https://www.npmjs.com/package/jasmine-unit-test-generator)](https://www.npmjs.com/package/jasmine-unit-test-generator)
+Based on FDIM's [jasmine-unit-test-generator](https://www.npmjs.com/package/jasmine-unit-test-generator)
+and  [angular-unit-test-generator](https://www.npmjs.com/package/angular-unit-test-generator)
 
 Supported types:
 
@@ -14,17 +15,6 @@ Supported types:
 * service (double quote): [source](spec/fixtures/auth.service.with-double-quote.ts), [generated spec](spec/fixtures/auth.service.with-double-quote.spec.expected.ts)
 * pipe
 * class file (may not be useful depending on use case)
-
-## Preview
-
-Basic input/output example: 
-
-![Basic](./assets/component-example.png)
-
-With custom event bus service dependency handler:
-
-![With custom event service dependency handler](./assets/component-example-2.png)
-
 
 ## Usage
 

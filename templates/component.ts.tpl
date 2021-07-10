@@ -5,7 +5,7 @@ import { <%=name %> } from <%=quoteSymbol %><%=path %><%=quoteSymbol %>;<%
 import { <%=value.names.join(', ') %> } from <%=value.path %>;<% }) %>
 
 describe(<%=quoteSymbol %><%=name %><%=quoteSymbol %>, () => {
-  let <%=instanceVariableName %>: <%=name %>;
+  let <%=instanceVariableName %>: <%=name%>;
   let fixture: ComponentFixture<<%=name %>>;<% 
     declarations.forEach(function(dec) { %>
   let <%=dec.name %>: <%=dec.type %>;<% }) %>
@@ -18,10 +18,9 @@ describe(<%=quoteSymbol %><%=name %><%=quoteSymbol %>, () => {
       declarations: [<%=name %>],
       providers: [<%
       dependencies.forEach(function(dep) { %>
-        { provide: <%=dep.token %>, <%=(dep.isObj?'useValue: ':'useFactory: () => ')%><%=dep.name%> },<% }) %>
+        { provide: <%=dep.token %>, <%=(dep.isObj ? 'useValue: ' : 'useFactory: () => ') + dep.name%> },<% }) %>
       ]
-    })
-      .compileComponents();
+    }).compileComponents();
   });
 
   beforeEach(() => {

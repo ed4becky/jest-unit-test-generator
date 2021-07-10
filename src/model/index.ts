@@ -24,7 +24,7 @@ export interface ParsedSourceFile {
 export interface ClassOptions {
   declarations: { name: string, type: string }[];
   initializers: { name?: string, value: string }[];
-  dependencies: { name: string, token: string }[];
+  dependencies: { name: string, token: string, isObj?: boolean }[];
   imports: ParsedImport[];
   methods: string[];
 }
