@@ -2,10 +2,25 @@
 
 [![Travis CI build](https://travis-ci.org/fdim/jest-unit-test-generator.svg)](https://travis-ci.org/fdim/jest-unit-test-generator)
 
-Automates creation of initial unit test files taking dependencies into account.
+Automates creation of initial unit test files taking dependencies into account. 
 
 Based on FDIM's [jasmine-unit-test-generator](https://www.npmjs.com/package/jasmine-unit-test-generator)
-and  [angular-unit-test-generator](https://www.npmjs.com/package/angular-unit-test-generator)
+and  vkotliar1's [angular-unit-test-generator](https://www.npmjs.com/package/angular-unit-test-generator)
+
+A jest Mock is created for each dependency.
+
+The TestBed is created using the mocks.
+
+A placeholder test is created for each public method.
+
+Uses single or double quotes based on the target class's implementation.
+
+For dependency names ending in 'Data', 'Config', or 'Environment', an empty object is referenced as a provider.
+
+For dependency names ending in 'Type', the 'Type' is removed from the provider name, and a defaul implmentation with that name is assumed to exist.
+
+For example:
+fakeConfigSvc = createSpyObj<**EvConfigServiceType**>(***EvConfigService***, []);
 
 Supported types:
 
