@@ -40,7 +40,7 @@ describe('HomePageComponent', () => {
   });
 
   describe('METHOD: ngOnInit', () => {
-    it('should do something', () => {
+    it('NOT IMPLEMENTED: should do something', () => {
       // TODO implement test
       // component.ngOnInit();
     });

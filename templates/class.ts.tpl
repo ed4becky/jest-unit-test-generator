@@ -1,4 +1,5 @@
-import { <%=name %> } from <%=quoteSymbol %><%=path %><%=quoteSymbol %>;<% 
+import { createSpyObj } from <%=quoteSymbol %>jest-createspyobj<%=quoteSymbol %>;
+import { <%=name %> } from <%=quoteSymbol %><%=path %><%=quoteSymbol %>;<%
   imports.forEach(function(value) { %>
 import { <%=value.names.join(', ') %> } from <%=value.path %>;<% }) %>
 

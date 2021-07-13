@@ -55,21 +55,21 @@ describe('LoginFormComponent', () => {
   });
 
   describe('METHOD: ngOnInit', () => {
-    it('should do something', () => {
+    it('NOT IMPLEMENTED: should do something', () => {
       // TODO implement test
       // component.ngOnInit();
     });
   });
 
   describe('METHOD: login', () => {
-    it('should do something', () => {
+    it('NOT IMPLEMENTED: should do something', () => {
       // TODO implement test
       // component.login();
     });
   });
 
   describe('METHOD: error', () => {
-    it('should do something', () => {
+    it('NOT IMPLEMENTED: should do something', () => {
       // TODO implement test
       // component.error();
     });

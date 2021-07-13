@@ -27,7 +27,7 @@ describe(<%=quoteSymbol %><%=name %><%=quoteSymbol %>, () => {
   });
 
 <%methods.forEach(function(meth) { %>  describe(<%=quoteSymbol %>METHOD: <%= meth %><%=quoteSymbol %>, () => {
-    it(<%=quoteSymbol %>should do something<%=quoteSymbol %>, () => {
+    it(<%=quoteSymbol %>NOT IMPLEMENTED: should do something<%=quoteSymbol %>, () => {
       // TODO implement test
       // <%=instanceVariableName %>.<%= meth %>();
     });

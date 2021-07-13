@@ -30,14 +30,14 @@ describe("AuthService", () => {
   });
 
   describe("METHOD: login", () => {
-    it("should do something", () => {
+    it("NOT IMPLEMENTED: should do something", () => {
       // TODO implement test
       // service.login();
     });
   });
 
   describe("METHOD: logout", () => {
-    it("should do something", () => {
+    it("NOT IMPLEMENTED: should do something", () => {
       // TODO implement test
       // service.logout();
     });
