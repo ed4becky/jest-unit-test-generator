@@ -40,21 +40,21 @@ describe('LoginFormComponent', () => {
   });
 
   describe('METHOD: ngOnInit', () => {
-    it('NOT IMPLEMENTED: should do something', () => {
+    it.skip('NOT IMPLEMENTED: should do something', () => {
       // TODO implement test
       // component.ngOnInit();
     });
   });
 
   describe('METHOD: login', () => {
-    it('NOT IMPLEMENTED: should do something', () => {
+    it.skip('NOT IMPLEMENTED: should do something', () => {
       // TODO implement test
       // component.login();
     });
   });
 
   describe('METHOD: error', () => {
-    it('NOT IMPLEMENTED: should do something', () => {
+    it.skip('NOT IMPLEMENTED: should do something', () => {
       // TODO implement test
       // component.error();
     });
