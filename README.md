@@ -37,6 +37,26 @@ Supported types:
 
 run `npm i jest-unit-test-generator`
 
+### Options
+
+**--version**    
+Show version number                                         [boolean]
+
+**--require**    
+optional package to require                                 [string]
+
+**--handlers**   
+directory of optional handlers                              [string]
+
+**--overwrite**  
+overwrite existing spec file                                [boolean]
+
+**--nodom**      
+test component as provider instead of as declared component [boolean]
+
+**--help**
+Show help                                                   [boolean]
+
 ### Basic
 
 run `jest-unit-test-generator <path-to-file>`
@@ -50,8 +70,6 @@ run `jest-unit-test-generator --handlers <path-to-handlers-dir> <path-to-file>`
 install `ts-node` 
 
 run `jest-unit-test-generator --require ts-node/register --handlers <path-to-handlers-dir> <path-to-file>`
-
-At the moment argument order is important!
 
 And note that if you install generator globally, ts-node must be installed globally as well. Otherwise both need to be installed locally in the project.
 

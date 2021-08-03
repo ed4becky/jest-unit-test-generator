@@ -4,14 +4,18 @@ import { ParsedSourceFile, ParsedClass, ClassOptions, TemplateOptions, Dependenc
 import { basename } from 'path';
 import { readFileSync } from 'fs';
 
-export function generateUnitTest(path: string, sourceCode: string, input: ParsedSourceFile, handlers: DependencyHandler[]) {
+export function generateUnitTest(path: string,
+                                 sourceCode: string,
+                                 input: ParsedSourceFile,
+                                 handlers: DependencyHandler[],
+                                 isNoDom?: boolean) {
   const klass = input.classes[0];
 
   if (!klass) {
     throw new Error(`No classes found in ${path}`);
   }
 
-  const templateOptions = getTemplateOptions(klass.name);
+  const templateOptions = getTemplateOptions(klass.name, isNoDom);
 
   const templateText = readFileSync(templateOptions.templatePath).toString();
   const generator = template(templateText);
@@ -94,7 +98,7 @@ function prepareImports(imports: ParsedImport[], quoteSymbol: string): ParsedImp
   let index = 0;
   while (index < imports.length) {
     const value = imports[index];
-    if (!value.path.match(/['"']/)) {
+    if (!value.path.match(/['"]/)) {
       value.path = quoteSymbol + value.path + quoteSymbol;
     }
     result.push(value);
@@ -115,7 +119,7 @@ function prepareImports(imports: ParsedImport[], quoteSymbol: string): ParsedImp
 function determinateUsedQuote(imports: ParsedImport[]): string {
 
   for (const value of imports) {
-    if (value.path.match(/['"']/)) {
+    if (value.path.match(/['"]/)) {
       return value.path.substring(0, 1);
     }
   }
@@ -123,9 +127,15 @@ function determinateUsedQuote(imports: ParsedImport[]): string {
   return '\'';
 }
 
-function getTemplateOptions(name: string): TemplateOptions {
+function getTemplateOptions(name: string, isNoDom?: boolean): TemplateOptions {
 
-  if (name.indexOf('Component') !== -1) {
+  if (name.indexOf('Component') !== -1 && isNoDom) {
+    return {
+      instanceVariableName: 'component',
+      templateType: 'Component',
+      templatePath: __dirname + '/../templates/component.nodom.ts.tpl'
+    };
+  } else if (name.indexOf('Component') !== -1) {
     return {
       instanceVariableName: 'component',
       templateType: 'Component',

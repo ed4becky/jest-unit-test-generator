@@ -25,6 +25,17 @@ describe('integration', () => {
 
   });
 
+  describe(`home component test - nodom`, () => {
+
+    createSpec({
+      file: 'spec/fixtures/components/home-page/home-page.component.ts',
+      spec: 'spec/fixtures/components/home-page/home-page.component.spec.ts',
+      expected: 'spec/fixtures/components/home-page/home-page.component.nodom.spec.expected.ts',
+      arguments: {'nodom': true}
+    });
+
+  });
+
   describe('with dependency handlers', () => {
 
     describe('login form component test', () => {
@@ -33,7 +44,7 @@ describe('integration', () => {
         file: 'spec/fixtures/components/login/login-form.component.ts',
         spec: 'spec/fixtures/components/login/login-form.component.spec.ts',
         expected: 'spec/fixtures/components/login/login-form.component.spec.expected.with-handlers.ts',
-        arguments: ['--handlers', 'spec/fixtures/dependency-handlers']
+        arguments: {'handlers': 'spec/fixtures/dependency-handlers'}
       });
 
     });
@@ -66,10 +77,10 @@ function createSpec(input: {
   file: string,
   spec: string,
   expected: string,
-  arguments?: string[]
+  arguments?: any
 }) {
   beforeAll(() => {
-    run([...(input.arguments || []), input.file]);
+    run({...input.arguments, _: [input.file]});
   });
 
   if (!leaveSpecFilesOnDisk) {

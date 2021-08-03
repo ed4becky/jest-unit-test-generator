@@ -1,7 +1,7 @@
 {
   "name": "@evidentiasoftware/jest-unit-test-generator",
-  "version": "1.0.6",
-  "description": "Generate initial unit test with all class dependencies mocked. Can be extended with custom handlers to cover move advanced cases",
+  "version": "1.1.2",
+  "description": "Generate unit test specs with all class dependencies mocked. Can be extended with custom handlers to cover move advanced cases",
   "keywords": [
     "unit test generator",
     "angular unit test",
@@ -24,8 +24,8 @@
     "@types/jest": "^26.0.24",
     "@types/lodash": "^4.14.171",
     "@types/node": "^14.17.5",
+    "@types/yargs": "^17.0.2",
     "jest": "^27.0.6",
-    "jest-createspyobj": "^2.0.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.6"
   },
@@ -33,14 +33,15 @@
     "jest-unit-test-generator": "lib/cli.js"
   },
   "dependencies": {
-    "babel-jest": "^27.0.6",
-    "jest-createspyobj": "^2.0.0",
-    "lodash": "^4.17.21",
-    "ts-jest": "^27.0.3",
     "@angular/common": "^11.2.14",
     "@angular/core": "^11.2.14",
     "@angular/router": "^11.2.14",
-    "rxjs": "^6.6.7"
+    "babel-jest": "^27.0.6",
+    "jest-createspyobj": "^2.0.0",
+    "lodash": "^4.17.21",
+    "rxjs": "^6.6.7",
+    "ts-jest": "^27.0.3",
+    "yargs": "^17.0.1"
   },
   "peerDependencies": {
     "typescript": "^4.1.6"
