@@ -73,6 +73,9 @@ export function parseSourceFile(file: ts.SourceFile): ParsedSourceFile {
       ts.forEachChild(node.importClause, (child) => {
         ts.forEachChild(child, (element) => {
           names.push(element.getText());
+          if(element.getText().endsWith('Type')) {
+            names.push(element.getText().replace(/Type$/, ''));
+          }
         });
       });
     }

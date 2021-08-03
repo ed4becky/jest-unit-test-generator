@@ -22,10 +22,10 @@ export default {
     if (dep.isObj) {
       initializer = {name: options.variableName, value: `{} as ${dep.type || 'any'}`};
     } else {
-      const argType = dep.type ? dep.type.replace(/<.*>/g, '') : void 0;
+      const argType = dep.type ? dep.type.replace(/<.*>/g, '').replace(/Type$/, "") : void 0;
       initializer = {
         name: options.variableName,
-        value: `createSpyObj<${dep.type || 'any'}>(${dep.type === 'any' || !dep.type ? dep.name : argType}, [${usedMethods.map(m => (options.quoteSymbol + m + options.quoteSymbol)).join(`, `)}])`
+        value: `createSpyObj<${dep.type || 'any'}>(${(dep.type === 'any' || !dep.type) ? dep.name: argType}, [${usedMethods.map(m => (options.quoteSymbol + m + options.quoteSymbol)).join(", ")}])`
       };
     }
     result.initializers.push(initializer);

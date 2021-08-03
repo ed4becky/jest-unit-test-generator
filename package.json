@@ -1,6 +1,6 @@
 {
   "name": "@evidentiasoftware/jest-unit-test-generator",
-  "version": "1.1.2",
+  "version": "1.1.9",
   "description": "Generate unit test specs with all class dependencies mocked. Can be extended with custom handlers to cover move advanced cases",
   "keywords": [
     "unit test generator",
