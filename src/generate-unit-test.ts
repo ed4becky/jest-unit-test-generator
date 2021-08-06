@@ -12,7 +12,8 @@ export function generateUnitTest(path: string,
   const klass = input.classes[0];
 
   if (!klass) {
-    throw new Error(`No classes found in ${path}`);
+    console.log(`No class definition found for ${path}`);
+    return;
   }
 
   const templateOptions = getTemplateOptions(klass.name, isNoDom);

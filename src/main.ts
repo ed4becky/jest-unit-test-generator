@@ -6,11 +6,7 @@ import defaultDependencyHandler from './default-dependency-handler';
 import { DependencyHandler } from './model';
 
 export function run(argv: any) {
-  if (!argv._) {
-    // tslint:disable-next-line:no-console
-    console.error('missing path argument');
-    process.exit(1);
-  }
+
 
   if (argv.require) {
     require(argv.require);
@@ -43,6 +39,7 @@ export function run(argv: any) {
 
   const input = parseSourceFile(sourceFile);
   const output = generateUnitTest(path, sourceCode, input, handlers, argv.nodom);
-
-  writeFileSync(specPath, output);
+  if(output) {
+    writeFileSync(specPath, output);
+  }
 }
