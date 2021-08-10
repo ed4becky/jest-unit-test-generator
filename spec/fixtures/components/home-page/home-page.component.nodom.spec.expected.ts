@@ -19,7 +19,7 @@ describe('HomePageComponent', () => {
     fakeData = {} as ConfigData;
 
     await TestBed.configureTestingModule({
-      declarations: [HomePageComponent],
+      declarations: [],
       providers: [
         { provide: Router, useFactory: () => fakeRouter },
         { provide: ActivatedRoute, useFactory: () => fakeRoute },

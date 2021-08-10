@@ -13,7 +13,7 @@ describe(<%=quoteSymbol %><%=name %><%=quoteSymbol %>, () => {
     <%=(factory.name ? (factory.name + ' = ') : '') + factory.value%>;<% }) %>
 
     await TestBed.configureTestingModule({
-      declarations: [<%=name %>],
+      declarations: [],
       providers: [<%
       dependencies.forEach(function(dep) { %>
         { provide: <%=dep.token %>, <%=(dep.isObj ? 'useValue: ' : 'useFactory: () => ') + dep.name%> },<% }) %>

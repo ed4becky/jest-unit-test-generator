@@ -1,5 +1,11 @@
 # Changelog
 
+## v1.2.1
+support for --nodom for directives
+
+## v1.2.0
+support for --all
+
 ## v1.1.0
 - command line arguments are more flexible (using yargs)
 - "--nodom" will treat component like a service - no compilation

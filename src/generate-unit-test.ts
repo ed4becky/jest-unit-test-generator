@@ -142,6 +142,12 @@ function getTemplateOptions(name: string, isNoDom?: boolean): TemplateOptions {
       templateType: 'Component',
       templatePath: __dirname + '/../templates/component.ts.tpl'
     };
+  } else if (name.indexOf('Directive') !== -1 && isNoDom) {
+    return {
+      instanceVariableName: 'directive',
+      templateType: 'Directive',
+      templatePath: __dirname + '/../templates/component.nodom.ts.tpl'
+    };
   } else if (name.indexOf('Directive') !== -1) {
     return {
       instanceVariableName: 'directive',

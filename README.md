@@ -54,6 +54,9 @@ overwrite existing spec file                                [boolean]
 **--nodom**      
 test component as provider instead of as declared component [boolean]
 
+**--all**      
+recusrsively att unit test spec for all components/services, etc... [boolean]
+
 **--help**
 Show help                                                   [boolean]
 
