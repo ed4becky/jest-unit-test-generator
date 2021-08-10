@@ -35,7 +35,7 @@ Supported types:
 
 ### Installation
 
-run `npm i jest-unit-test-generator`
+run `npm i @evidentiasoftware/jest-unit-test-generator`
 
 ### Options
 
@@ -55,7 +55,7 @@ overwrite existing spec file                                [boolean]
 test component as provider instead of as declared component [boolean]
 
 **--all**      
-recusrsively att unit test spec for all components/services, etc... [boolean]
+recursively add unit test spec for all components/services, etc... [boolean]
 
 **--help**
 Show help                                                   [boolean]
@@ -82,6 +82,13 @@ You can extend formatting of resulting spec files for each dependency by making 
 
 It is possible to add extra declarations, initializers and dependencies.
 
+## Known Issues
+
+* if Router or HttpClient are dependencies, mocks are created instead of using Router Test or Http Test modules
+* determination of Types should relay on object type instead of naming suffix
+* current creates failing tests for abstract classes
+* does not handle dependencies of parent classes
+
 ## Development
 
 It's probably best to:
@@ -94,10 +101,10 @@ Alternavely, you can:
 
 * run `npm link`
 * run `npm run build:dev`
+* run `npm link @evidentiasoftware/jest-unit-test-generator` in your project of choice
 * run `jest-unit-test-generator <option>` in your project of choice
 
 ## Release
 
-run `npm run build`
-
-run `npm publish`
+* run `npm run build`
+* run `npm publish`

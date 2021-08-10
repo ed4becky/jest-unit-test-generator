@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.2
+documentation updates
+
 ## v1.2.1
 support for --nodom for directives
 
@@ -15,9 +18,7 @@ support for --all
 Add code to skip unimplemented tests by default
 
 ## v1.0.5
-
 Added NOT IMPLEMENTED to method tests, added CreateSpyObj import to class tests
 
 ## v1.0.0
-
 Initial release based on jasmine-unit-test-generator
