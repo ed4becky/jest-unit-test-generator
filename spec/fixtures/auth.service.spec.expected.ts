@@ -20,6 +20,7 @@ describe('AuthService', () => {
         { provide: 'window', useFactory: () => fakeWindow },
         { provide: LoggerService, useFactory: () => fakeLogger },
         { provide: EventBusService, useFactory: () => fakeEventBusService },
+        AuthService
       ]
     });
     service = TestBed.inject(AuthService);

@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.2.5
+fix failing tests
+
 ## v1.2.4
 added missing service provider for service being tested
 documentation updates
