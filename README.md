@@ -86,7 +86,7 @@ It is possible to add extra declarations, initializers and dependencies.
 
 * if Router or HttpClient are dependencies, mocks are created instead of using Router Test or Http Test modules
 * determination of Types should relay on object type instead of naming suffix
-* current creates failing tests for abstract classes
+* currently creates failing tests for abstract classes
 * does not handle dependencies of parent classes
 
 ## Development

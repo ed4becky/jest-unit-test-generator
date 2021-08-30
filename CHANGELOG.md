@@ -1,5 +1,9 @@
 # Changelog
 
+## v1.2.4
+added missing service provider for service being tested
+documentation updates
+
 ## v1.2.2
 documentation updates
 
